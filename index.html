@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>文档标题</title>
+</head>
+ 
+<body>
+  <button id="reqDevice">request devices</button/>
+  <button id="getDevice">get devices</button/>
+  <script>
+let reqDevice = document.getElementById('reqDevice')
+let getDevice = document.getElementById('reqDevice')
+
+reqDevice.addEventListener('click',()=>{
+navigator.bluetooth.requestDevice({
+    acceptAllDevices: true
+  })
+  .then(device => {
+    console.log('连接成功！设备名称：', device.name);
+    // 连接设备后，可以执行其他操作，如读取设备特征的值
+  })
+  .catch(error => {
+    console.log('连接失败：', error);
+  });
+})
+getDevice.addEventListener('click',()=>{
+navigator.bluetooth.getDevices()
+  .then(device => {
+    console.log('getDevices()：', device.name);
+  })
+  .catch(error => {
+    console.log('获取失败：', error);
+  });
+})
+</script/>
+</body>
+ 
+</html>
