@@ -17,20 +17,20 @@ navigator.bluetooth.requestDevice({
     acceptAllDevices: true
   })
   .then(device => {
-    console.log('连接成功！设备名称：', device.name);
+    alert('连接成功！设备名称：', device.name);
     // 连接设备后，可以执行其他操作，如读取设备特征的值
   })
   .catch(error => {
-    console.log('连接失败：', error);
+    alert('连接失败：', error.message);
   });
 })
 getDevice.addEventListener('click',()=>{
 navigator.bluetooth.getDevices()
   .then(device => {
-    console.log('getDevices()：', device.name);
+    alter('getDevices()：', device);
   })
   .catch(error => {
-    console.log('获取失败：', error);
+    alter('获取失败：', error.message);
   });
 })
 </script/>
